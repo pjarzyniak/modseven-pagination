@@ -1,0 +1,39 @@
+{
+	"name":        "modseven/pagination",
+	"type":        "modseven-module",
+	"description": "Modseven module for pagination - fork from kohana module",
+	"license":     "BSD-3-Clause",
+	"keywords":    ["kohana", "framework","modseven","pagination"],
+	"authors": [
+		{
+			"name": 	"Paweł Jarzyniak",
+			"homepage": "https://github.com/pjarzyniak/modseven-pagination"
+		},
+		{
+			"name":     "Kohana Team",
+			"email":    "team@kohanaframework.org",
+			"homepage": "http://kohanaframework.org/team",
+			"role":     "developer"
+		}
+	],
+	"support": {
+		"issues":   "http://dev.kohanaframework.org",
+		"forum":    "http://forum.kohanaframework.org",
+		"irc":      "irc://irc.freenode.net/kohana",
+		"source":   "https://github.com/pjarzyniak/modseven-pagination"
+	},
+	"require": {
+		"modseven/core":       "*",
+		"php":                 ">=7.4"
+	},
+	"autoload": {
+		"psr-4": {
+			"Modseven\\Pagination\\": "classes"
+		}
+	},
+	"extra" : {
+		"modseven" : true
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true
+}
