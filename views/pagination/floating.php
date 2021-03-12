@@ -71,7 +71,7 @@ for ($i = $n7; $i <= $n8; $i++)
 
 
 <div class="c pagination-out">
-    <span style="float: left; padding-top: 5px;"><?=__('Znaleziono:');?> <?php echo $page->total_items; ?></span>
+    <span style="float: left; padding-top: 5px;"><?=__('Found:');?> <?php echo $page->total_items; ?></span>
 
     <ul class="pagination">
         <?php if ($first_page !== FALSE): ?>
@@ -97,9 +97,9 @@ for ($i = $n7; $i <= $n8; $i++)
         <?php endif ?>
     </ul>
 
-    <?php $options = array(10 => 10, 25 => 25, 50 => 50, 100 => 100, 500 => 500, 100000 => __('wszystkie')); ?>
+    <?php $options = array(10 => 10, 25 => 25, 50 => 50, 100 => 100, 500 => 500, 100000 => __('all')); ?>
 
-    <span class="perpage" style="float: right; white-space: nowrap"><?=__('Na stronie: ');?><?php echo Form::select('perpage', $options, $page->items_per_page, array('class' => 'form-control', 'style' => 'max-width: 80px; display: inline-block;')); ?></span>
+    <span class="perpage" style="float: right; white-space: nowrap"><?=__('Per page: ');?><?php echo Form::select('perpage', $options, $page->items_per_page, array('class' => 'form-control', 'style' => 'max-width: 80px; display: inline-block;')); ?></span>
 </div>
 
 <!-- .pagination -->
