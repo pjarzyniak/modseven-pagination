@@ -69,37 +69,42 @@ for ($i = $n7; $i <= $n8; $i++)
 ?>
 
 
-
-<div class="c pagination-out">
-    <span style="float: left; padding-top: 5px;"><?=__('Found:');?> <?php echo $page->total_items; ?></span>
-
-    <ul class="pagination">
-        <?php if ($first_page !== FALSE): ?>
-            <li><a href="<?php echo strtolower(HTML::chars($page->url($first_page))) ?>" rel="first">&laquo;</a></li>
-        <?php else: ?>
-            <li class="disabled"><span>&laquo;</span></li>
-        <?php endif ?>
-
-        <?php foreach ($links as $number => $content): ?>
-
-            <?php if ($number === $current_page): ?>
-                <li class="active"><span><?php echo $number; ?> <span class="sr-only">(current)</span></span></li>
-            <?php else: ?>
-                <li><a href="<?php echo strtolower(HTML::chars($page->url($number))) ?>"><?php echo $content ?></a></li>
-            <?php endif ?>
-
-        <?php endforeach ?>
-
-        <?php if ($last_page !== FALSE): ?>
-            <li><a href="<?php echo strtolower(HTML::chars($page->url($last_page))) ?>" rel="last">&raquo;</a></li>
-        <?php else: ?>
-            <li class="disabled"><span>&raquo;</span></li>
-        <?php endif ?>
-    </ul>
-
+<div>
+    <span style=" padding-top: 5px;"><?=__('Found:');?>
+        <?php $page->total_items; ?>
+  </span>
     <?php $options = array(10 => 10, 25 => 25, 50 => 50, 100 => 100, 500 => 500, 100000 => __('all')); ?>
 
-    <span class="perpage" style="float: right; white-space: nowrap"><?=__('Per page: ');?><?php echo Form::select('perpage', $options, $page->items_per_page, array('class' => 'form-control', 'style' => 'max-width: 80px; display: inline-block;')); ?></span>
+    <span class="perpage" style="float: right; white-space: nowrap"><?=__('Per page: ');?>
+        <?php echo Form::select('perpage', $options, $page->items_per_page, array('id'=>'per','class' => 'form-control', 'style' => 'max-width: 80px; display: block;')); ?>
 </div>
 
-<!-- .pagination -->
+
+
+<div class="c pagination-out">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="<?php echo strtolower(HTML::chars($page->url($first_page))) ?>">Previous</a></li>
+            <?php foreach ($links as $number => $content): ?>
+                <?php if ($number === $current_page): ?>
+                    <li class="page-item active">
+                        <a class="page-link" href="#"><?php echo $number; ?><span class="sr-only"></span></a>
+                    </li>
+                <?php else: ?>
+                    <?php if ($number === 2): ?>
+                        <li class="page-item"><a class="page-link" href="<?php echo strtolower(HTML::chars($page->url($number))) ?>"><?php echo $number; ?></a></li>
+                    <?php else: ?>
+                        <?php if ($number === 2): ?>
+                            <li class="page-item"><a class="page-link" href="<?php echo strtolower(HTML::chars($page->url($number))) ?>"><?php echo $number; ?></a></li>
+                        <?php endif ?>
+                    <?php endif ?>
+                <?php endif ?>
+            <?php endforeach ?>
+            <?php if ($last_page !== FALSE): ?>
+                <li class="page-item"><a class="page-link" href="<?php echo strtolower(HTML::chars($page->url($last_page))) ?>">Next</a></li>
+            <?php else: ?>
+                <li class="page-item"></li>
+            <?php endif ?>
+        </ul>
+    </nav>
+</div>
