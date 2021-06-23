@@ -426,6 +426,16 @@ class Pagination {
 		return isset($this->$key) ? $this->$key : NULL;
 	}
 
+	public function offset() : int
+    {
+        return (int)$this->offset;
+    }
+
+    public function itemsPerPage() : int
+    {
+        return (int)$this->items_per_page;
+    }
+
     /**
      * Updates a single config setting, and recalculates pagination if needed.
      *
